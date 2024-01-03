@@ -95,10 +95,17 @@ public class Main {
         bookNowBtn.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Random random = new Random();
-                int id = random.nextInt(99999);
-                bookingIdlb.setText("Your booking is confirmed and booking ID "+id);
+                if(nametf.getText().toString().isEmpty()||emailidtf.getText().toString().isEmpty()||
+                        mobiletf.getText().toString().isEmpty()||amounttf.getText().toString().isEmpty())
+                {
+                    bookingIdlb.setText("Please fill the complete details");
+                }
+                else {
 
+                    Random random = new Random();
+                    int id = random.nextInt(99999);
+                    bookingIdlb.setText("Your booking is confirmed and booking ID " + id);
+                }
             }
         });
 
